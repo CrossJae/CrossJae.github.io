@@ -21,10 +21,32 @@
 <li><p>修改主题配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ys.zsh-theme</div></pre></td></tr></table></figure>
 </li>
-<li><p>修改保存后， <strong>重启</strong> zsh生效</p>
+<li><p>修改保存后， <strong>重启</strong> zsh生效，或者source配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source ~/.zshrc</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li>在zsh内外复制粘贴信息的方法，以及加入特殊字符的方式</li>
+<li><p>建立自己的主题（以ys主题为模版）</p>
+<ol>
+<li><p>复制一个ys主题配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp ys.zsh-theme yourname.zsh-theme</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改我们的主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim yourname.zsh-theme</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置中的git相关，和时间相关语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// git</div><div class="line">YS_VCS_PROMPT_PREFIX2=&quot; 🌸   %&#123;$fg[cyan]%&#125;&quot;</div><div class="line">// 时间</div><div class="line">PROMPT=&quot;</div><div class="line">%&#123;$terminfo[bold]$fg[cyan]%&#125;#%&#123;$reset_color%&#125; \</div><div class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</div><div class="line">%&#123;$fg[white]%&#125;@ \</div><div class="line">%&#123;$fg[green]%&#125;%m \</div><div class="line">%&#123;$fg[white]%&#125;in \</div><div class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</div><div class="line">$&#123;hg_info&#125;\</div><div class="line">$&#123;git_info&#125;\</div><div class="line">%&#123;$fg[white]%&#125;[%D %T] $exit_code</div><div class="line">%&#123;$terminfo[bold]$fg[red]%&#125;⚡️   %&#123;$reset_color%&#125;&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>保存后修改zshrc配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ZSH_THEME=&quot;10crossjae&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>退出配置文件，使其生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
 </ol>
 </div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-11-10</span><i class="fa fa-tag"></i><a href="/tags/zsh/" title="zsh" class="tag">zsh </a><a href="/tags/vim/" title="vim" class="tag">vim </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://yoursite.com/2017/11/10/zsh/,HawkthornSlice,折腾zsh theme,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/31/rem/" title="rem适配方案" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
