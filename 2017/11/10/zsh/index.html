@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>zsh theme · HawkthornSlice</title><meta name="description" content="基本修改方式
+
+修改zsh配置文件
+1$ vim ~/.zshrc
+
+修改配置文件中的主题，ys是比较流行的主题，可以进入网站查看主题 https://zshthem.es/
+1ZSH_THEME=&amp;quot;ys&amp;quot;
+
+进入主题的配置文件目录，查看所有的主题，主题配置文件的命名都是them"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">HawkthornSlice</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>zsh theme</a></h3></div><div class="post-content"><ol>
+<li><p>基本修改方式</p>
+<ul>
+<li><p>修改zsh配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件中的主题，ys是比较流行的主题，可以进入网站查看主题 <a href="https://zshthem.es/" target="_blank" rel="external">https://zshthem.es/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ZSH_THEME=&quot;ys&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>进入主题的配置文件目录，查看所有的主题，主题配置文件的命名都是<code>themeName.zsh-theme</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.oh-my-zsh/themes</div><div class="line">$ ls</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ys.zsh-theme</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改保存后， <strong>重启</strong> zsh生效，或者source配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>建立自己的主题（以ys主题为模版）</p>
+<ol>
+<li><p>复制一个ys主题配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp ys.zsh-theme yourname.zsh-theme</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改我们的主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim yourname.zsh-theme</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置中的git相关，和时间相关语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// git</div><div class="line">YS_VCS_PROMPT_PREFIX2=&quot; 🌸   %&#123;$fg[cyan]%&#125;&quot;</div><div class="line">// 时间</div><div class="line">PROMPT=&quot;</div><div class="line">%&#123;$terminfo[bold]$fg[cyan]%&#125;#%&#123;$reset_color%&#125; \</div><div class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</div><div class="line">%&#123;$fg[white]%&#125;@ \</div><div class="line">%&#123;$fg[green]%&#125;%m \</div><div class="line">%&#123;$fg[white]%&#125;in \</div><div class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</div><div class="line">$&#123;hg_info&#125;\</div><div class="line">$&#123;git_info&#125;\</div><div class="line">%&#123;$fg[white]%&#125;[%D %T] $exit_code</div><div class="line">%&#123;$terminfo[bold]$fg[red]%&#125;⚡️   %&#123;$reset_color%&#125;&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>保存后修改zshrc配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ZSH_THEME=&quot;10crossjae&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>退出配置文件，使其生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source ~/.zshrc</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-11-10</span><i class="fa fa-tag"></i><a class="tag" href="/tags/zsh/" title="zsh">zsh </a><a class="tag" href="/tags/vim/" title="vim">vim </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://crossjae.github.io/2017/11/10/zsh/,HawkthornSlice,zsh theme,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2017/11/22/browser/" title="repaint和reflow">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2017/10/31/rem/" title="rem适配方案">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

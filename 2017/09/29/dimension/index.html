@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>offset / client / scroll dimension · HawkthornSlice</title><meta name="description" content="offset dimension
+offsetWidth offsetHeight offsetTop offsetLeft
+offsetWidth / Height 包括 内边距、滚动条、边框 宽高
+offsetTop / Left 与包含元素offsetParent边框的距离
+
+
+client "><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">HawkthornSlice</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>offset / client / scroll dimension</a></h3></div><div class="post-content"><ol>
+<li>offset dimension<ul>
+<li><code>offsetWidth</code> <code>offsetHeight</code> <code>offsetTop</code> <code>offsetLeft</code></li>
+<li><code>offsetWidth / Height</code> 包括 <strong>内边距、滚动条、边框</strong> 宽高</li>
+<li><code>offsetTop / Left</code> 与包含元素<code>offsetParent</code>边框的距离</li>
+</ul>
+</li>
+<li><p>client dimension</p>
+<ul>
+<li><code>clientWidth</code> <code>clientHeight</code></li>
+<li>元素的实际宽高，包括 <strong>内边距</strong></li>
+<li><p>最大的用途就是获取浏览器窗口大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function getViewport()&#123;</div><div class="line">	if(document.compat == &apos;BackCompat&apos;)&#123; // 混杂模式</div><div class="line">		return(</div><div class="line">			width : document.body.clientWidth,</div><div class="line">			height : document.body.clientHeight</div><div class="line">		)</div><div class="line">	&#125;else&#123;</div><div class="line">		return(</div><div class="line">			width : document.documentElement.clientWidth,</div><div class="line">			height : document.documentElement.clientHeight</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>document.body.clientHeight</code> 获取的body实际高度</p>
+<ul>
+<li>没有滚动条时，获取的高度小于窗口高度</li>
+<li>在有滚动条时，获取的高度大于窗口高度</li>
+</ul>
+</li>
+<li><code>document.documentElement.clientHeight</code> 获取的是窗口高度，无论有无滚动条</li>
+</ul>
+</li>
+<li>scroll dimension<ul>
+<li><code>scrollWidth</code> <code>scrollHeight</code> <code>scrollTop</code> <code>scrollLeft</code></li>
+<li><code>scrollWidth / Height</code> 元素总宽高</li>
+<li><code>scrollTop / Left</code> 滚动隐藏的部分，可以设置元素滚动位置</li>
+</ul>
+</li>
+<li>window.innerHeight / outerHeight<ul>
+<li><code>innerWidth / Height</code> 窗口内宽高</li>
+<li><code>outerWidth / Height</code> 窗口外宽高</li>
+<li>移动端 <code>innerHeight</code> 返回的是窗口实际高度，不包括各种状态栏，比如微信头部，浏览器返回等，<code>outerHeight</code>返回的是0。</li>
+<li>PC端，<code>innerHeight</code> 返回的是窗口高度，不包括浏览器状态栏，<code>outerHeight</code> 返回的是整个浏览器高度。</li>
+</ul>
+</li>
+<li>screen.availHeight / height<ul>
+<li><code>screen.width / height</code> 屏幕宽高</li>
+<li><code>screen.availWidth / availHeight</code> 除任务栏以外屏幕宽高</li>
+<li>移动端返回的是手机屏幕宽高，pc返回的是pc屏幕宽高</li>
+</ul>
+</li>
+</ol>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-09-29</span><i class="fa fa-tag"></i><a class="tag" href="/tags/javascript/" title="javascript">javascript </a><a class="tag" href="/tags/lv1/" title="lv1">lv1 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://crossjae.github.io/2017/09/29/dimension/,HawkthornSlice,offset / client / scroll dimension,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2017/10/31/rem/" title="rem适配方案">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2017/09/27/callback/" title="jsonp &amp; callback">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

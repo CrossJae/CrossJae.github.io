@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>hexo + github 创建自己的博客 · HawkthornSlice</title><meta name="description" content="之前照着网上的教程，试过github pages，后来看到过许多别人的github博客，加上罗罗的推荐，于是决定折腾个自己的博客，分享一些前端经验，更多的是记录学习过程。
+第一篇，来记录下我搭建hexo + github 博客的过程，特别是遇到的坑。
+系统：mac os终端：zsh必备：node /"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">HawkthornSlice</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>hexo + github 创建自己的博客</a></h3></div><div class="post-content"><p>之前照着网上的教程，试过github pages，后来看到过许多别人的github博客，加上罗罗的推荐，于是决定折腾个自己的博客，分享一些前端经验，更多的是记录学习过程。</p>
+<p>第一篇，来记录下我搭建hexo + github 博客的过程，特别是遇到的坑。</p>
+<p>系统：mac os<br>终端：zsh<br>必备：node / npm / git</p>
+<p>折腾过程：</p>
+<ol>
+<li>新建你本地的blog目录<ul>
+<li>打开命令行终端，输入：<code>cd 你要放blog目录的地方</code> ，比如我的就是 <code>cd desktop</code></li>
+<li>新建blog目录，<code>mkdir myblog</code> ，myblog换成你的名字</li>
+<li>打开目录 <code>cd myblog</code> 进入下一步 </li>
+</ul>
+</li>
+<li>新建github仓库<ul>
+<li>在github上创建存放blog的仓库时，<strong>Repository name</strong>一定要是你的账号名称 <code>你的账号.github.io</code>，比如我的<code>CrossJae.github.io</code> ，我因为一开始用了其他名称出错</li>
+</ul>
+</li>
+<li>安装hexo<ul>
+<li>全局安装hexo <code>sudo npm install --unsafe-perm --verbose -g hexo</code> </li>
+<li>过程可能有点慢，稍等一下，如果不知道是否安装成功，还是检测版本号来验证 <code>hexo -v</code> or <code>hexo version</code></li>
+</ul>
+</li>
+<li>初始化hexo <code>hexo init</code> </li>
+<li><p>配置</p>
+<ul>
+<li>初始化成功后，myblog目录下会生成 <strong>_config.yml</strong> 配置文件，可以用编辑器进行编辑</li>
+<li><p>最基本的配置只要修改 _config.yml 最后的<code>deploy</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">   type: git</div><div class="line">   repo: https://github.com/CrossJae/CrossJae.github.io.git</div><div class="line"> branch: master</div></pre></td></tr></table></figure>
+</li>
+<li><p>type、repo、branch的 <code>:</code> 后面一定要有一个空格，以后需要配置hexo其他内容也是一样的</p>
+</li>
+<li>repo填的是github的仓库地址</li>
+<li>branch填的你放blog的分支</li>
+</ul>
+</li>
+<li>安装依赖 <code>npm install hexo-deployer-git --save</code></li>
+<li>生成 <code>hexo generate</code></li>
+<li>启用本地服务器查看 <code>hexo server</code><ul>
+<li>此时在浏览器中打开 localhost:4000 即可看到自己的博客啦</li>
+<li>启用服务器方便我们在本地进行博客修改</li>
+</ul>
+</li>
+<li>部署到github <code>hexo deploy</code><ul>
+<li>此时在浏览器中打开你搭建blog的github仓库地址就可以查看线上博客啦</li>
+</ul>
+</li>
+</ol>
+<p>其他：安装hexo时，也可以用 <code>npm install hexo -g</code> 来安装，但不知道是不是os系统的问题，一直有error，就算加了sudo也不行。后来找到一种办法是 <code>sudo npm install hexo --no-optional</code> 虽然成功了，但是在后续使用hexo的时候还会报 <code>Error: Cannot find module &#39;./build/Release/DTraceProviderBindings’</code> ，虽然不影响使用，但还是不能忍受每次有一长串的error，最后删除了hexo <code>sudo uninstall hexo</code>，使用<code>sudo npm install -unsafe-perm --verbose -g hexo</code>安装成功。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-06-30</span><i class="fa fa-tag"></i><a class="tag" href="/tags/hexo/" title="hexo">hexo </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://crossjae.github.io/2017/06/30/test/,HawkthornSlice,hexo + github 创建自己的博客,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2017/07/03/newDate/" title="Date对象方法总结">上一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

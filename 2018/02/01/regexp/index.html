@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>js中与正则表达式有关系的方法 · HawkthornSlice</title><meta name="description" content="RegExp对象属性
+global 全局
+ignoreCase 大小写
+lastIndex
+multiline 多行
+source 表达式
+
+RegExp对象方法
+compile
+exec@return 没有匹配 返回null
+1RegExpObject.exec(string)
+
+test
+1Re"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">HawkthornSlice</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>js中与正则表达式有关系的方法</a></h3></div><div class="post-content"><h4 id="RegExp对象属性"><a href="#RegExp对象属性" class="headerlink" title="RegExp对象属性"></a>RegExp对象属性</h4><ul>
+<li>global 全局</li>
+<li>ignoreCase 大小写</li>
+<li>lastIndex</li>
+<li>multiline 多行</li>
+<li>source 表达式</li>
+</ul>
+<h4 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h4><ul>
+<li>compile</li>
+<li><p>exec<br>@return 没有匹配 返回null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RegExpObject.exec(string)</div></pre></td></tr></table></figure>
+</li>
+<li><p>test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RegExpObject.test(string)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="支持正则表达式的string对象的方法"><a href="#支持正则表达式的string对象的方法" class="headerlink" title="支持正则表达式的string对象的方法"></a>支持正则表达式的string对象的方法</h4><ul>
+<li>search</li>
+<li><p>match<br>使用方法：<code>str.match(&#39;需要匹配的字符串 | 正则表达式&#39;)</code><br>返回：没有匹配返回 <code>null</code>。<br>有一个匹配项时返回 <code>[&quot;匹配到的字符串&quot;, index:3, input: str]</code><br>多个匹配项时（需要配置正则全局g）返回 <code>[&#39;第一个匹配到的字符串&#39;, &#39;第二个匹配到的字符串&#39;, ...]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.match(regexp|string)</div></pre></td></tr></table></figure>
+</li>
+<li><p>replace<br>使用方法：<code>str.replace(&#39;需要替换的字符串 | 正则表达式&#39;, &#39;替换后的字符串&#39;)</code><br>返回：匹配的 <code>str</code> 被修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name = &quot;Doe, John&quot;;</div><div class="line">name.replace(/(\w+)\s*, \s*(\w+)/, &quot;$2 $1&quot;); // John, Dow</div></pre></td></tr></table></figure>
+</li>
+<li><p>split</p>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-02-01</span><i class="fa fa-tag"></i><a class="tag" href="/tags/javascript/" title="javascript">javascript </a><a class="tag" href="/tags/l2/" title="l2">l2 </a><a class="tag" href="/tags/regexp/" title="regexp">regexp </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://crossjae.github.io/2018/02/01/regexp/,HawkthornSlice,js中与正则表达式有关系的方法,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/03/08/flex/" title="flex初体验">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/01/31/localstorage/" title="localStorage / sessionStorage">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
